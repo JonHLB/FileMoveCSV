@@ -1,12 +1,10 @@
 import numpy as np
 import pandas as pd
-import cv2
-from matplotlib import pyplot as plt
+#import cv2
+#from matplotlib import pyplot as plt
 from shutil import copy2
-import os
-import fnmatch
 import glob
-
+import pathlib
 
 inputcsv = pd.read_csv("C:/Users/Jonathan/Desktop/Software Stuff/Python 3.6 Stuff/Filemove/inputcsv.csv")
 #C:\Users\Jonathan\Desktop\Software Stuff\Python 3.6 Stuff\Filemove
@@ -14,7 +12,9 @@ inputcsv = pd.read_csv("C:/Users/Jonathan/Desktop/Software Stuff/Python 3.6 Stuf
 inputarray = inputcsv.values
 inputarray
 #inputcsv
-dst = "C:/Users/Jonathan/Desktop/Software Stuff/Python 3.6 Stuff/Filemove/result"
+
+dst = "C:/Users/Jonathan/Desktop/Software Stuff/Python 3.6 Stuff/Filemove/result3"
+pathlib.Path(dst).mkdir(parents=True, exist_ok=True)
 
 # src1 = "C:/Users/Jonathan/Desktop/Software Stuff/Python 3.6 Stuff/Filemove/"
 # src2 = "5021"
@@ -30,5 +30,4 @@ for x in range(0,inputarray.size):
     src4 = glob.glob(src1+src2+src3+'*Capture123.JPG')
     #src = src1 + src2 + src3 + src4
     copy2(src4[0], dst)
-
     
